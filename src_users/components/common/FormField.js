@@ -44,9 +44,9 @@ export default class FormField extends React.Component {
 
   // the field itself
   field() {
-    const {input, componentClass, type, placeholder, children} = this.props;
+    const {input, componentClass, type, placeholder, children, value} = this.props;
     return (
-      <FormControl {...input} componentClass={componentClass} type={type} placeholder={placeholder}>
+      <FormControl {...input} componentClass={componentClass} type={type} placeholder={placeholder} value={value}>
         {children}
       </FormControl>
     );
@@ -64,4 +64,5 @@ FormField.propTypes = {
   type: PropTypes.string,   // input type: text (by default), password
   placeholder: PropTypes.string,    // input placeholder (empty string by default)
   className: PropTypes.string,  // the class name (empty string by default)
+  value: PropTypes.string // default value for select
 }

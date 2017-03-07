@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { push } from "react-router-redux";
-import { Field, SubmissionError, reduxForm } from "redux-form";
+import { Field, SubmissionError, reduxForm, formValueSelector } from "redux-form";
 import { PageHeader, Form } from "react-bootstrap";
 import FormField from "./common/FormField";
 import FormSubmit from "./common/FormSubmit";
@@ -25,14 +25,8 @@ export class PetEdit extends React.Component {
         <Form horizontal onSubmit={handleSubmit(this.formSubmit)}>
           <Field component={FormField} name="name" label="Name" doValidate={true}/>
           <Field component={FormField} name="quantity" label="Quantity"/>
-          <Field component="select" name="category" label="Category">
-            <option>Choose a pet category</option>
-            {categories.map((category) => {
-              return (
-                <option value={category.id}>{category.name}</option>
-              );
-            })}
-          </Field>
+          <Field component={FormField} name="category" label="Category"/>
+
           <FormSubmit error={error} invalid={invalid} submitting={submitting} buttonSaveLoading="Saving..."
             buttonSave="Save Pet"/>
         </Form>
@@ -45,12 +39,12 @@ export class PetEdit extends React.Component {
     const {dispatch} = this.props;
     return new Promise((resolve, reject) => {
       dispatch({
-        type: 'PET_ADD_EDIT',
+        type: 'PETS_ADD_EDIT',
         pet: {
           id: values.id || 0,
           name: values.name,
           quantity: values.quantity,
-          category: { id: values.category }
+          category: { id: parseInt(values.category) }
         },
         callbackError: (error) => {
           reject(new SubmissionError({_error: error}));
@@ -72,6 +66,9 @@ const PetEditForm = reduxForm({
     if (!values.name) {
       errors.name = 'Name is required';
     }
+    if(!values.quantity) {
+      errors.quantity = 'Quantity is required';
+    }
     return errors;
   },
 })(PetEdit);
@@ -81,7 +78,7 @@ function mapStateToProps(state, own_props) {
   const pet = state.pets.find(x => Number(x.id) === Number(own_props.params.id)) || {};
   return {
     pet: pet,
-    initialValues: pet,
+    initialValues: {name: pet.name, quantity: pet.quantity},
     categories: state.categories
   };
 }

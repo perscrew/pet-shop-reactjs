@@ -11,7 +11,7 @@ export class App extends React.Component {
     // the first time we load the app, we need that pets list
     this.props.dispatch({
       type: 'PETS_FETCH_LIST',
-      options: {page: 1, size: 10} // TODO get page from state
+      options: {page: 0, size: 10} // TODO get page from state
     });
     // in a second time load pet categories form edit/ad form
     this.props.dispatch({type: 'PETS_FETCH_CATEGORY'});

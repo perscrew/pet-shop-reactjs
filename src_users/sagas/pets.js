@@ -16,13 +16,13 @@ export function* petsFetchList(action) {
 // add/edit a pet
 export function* petsAddEdit(action) {
   // call the api to add/edit the pet
-  yield call(ApiPets.addEdit, action.pet);
+  const pet = yield call(ApiPets.addEdit, action.pet);
   //return action.callbackError("Some error");   // show an error when the API fails
 
   // update the state by adding/editing the pet
   yield put({
     type: action.pet.id ? 'PETS_EDIT_SAVE' : 'PETS_ADD_SAVE',
-    pet: action.pet,
+    pet: pet,
   });
 
   // success

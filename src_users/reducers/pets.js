@@ -7,7 +7,7 @@ export default function pets(state = {}, action) {
     case 'PETS_ADD_SAVE':
       const pet = action.pet;
       pet.id = pet.id || Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
-      return [...state, user];
+      return [...state, pet];
 
     case 'PETS_EDIT_SAVE':
       return state.map(pet =>

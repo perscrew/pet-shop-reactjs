@@ -13,7 +13,7 @@ export default class Menu extends React.Component {
             Home
           </NavItem>
         </IndexLinkContainer>
-        <LinkContainer to="/user-edit">
+        <LinkContainer to="/pet-edit">
           <NavItem>
             Add a Pet <Glyphicon glyph="plus-sign"/>
           </NavItem>
