@@ -6,8 +6,8 @@ import { PageHeader, Form } from "react-bootstrap";
 import FormField from "./common/FormField";
 import FormSubmit from "./common/FormSubmit";
 
-// User add/edit page component
-export class UserEdit extends React.Component {
+// Pet add/edit page component
+export class PetEdit extends React.Component {
   // constructor
   constructor(props) {
     super(props);
@@ -18,15 +18,23 @@ export class UserEdit extends React.Component {
 
   // render
   render() {
-    const {user, handleSubmit, error, invalid, submitting} = this.props;
+    const {pet, categories, handleSubmit, error, invalid, submitting} = this.props;
     return (
-      <div className="page-user-edit">
-        <PageHeader>{'User ' + (user.id ? 'edit' : 'add')}</PageHeader>
+      <div className="page-pet-edit">
+        <PageHeader>{'Pet ' + (pet.id ? 'edit' : 'add')}</PageHeader>
         <Form horizontal onSubmit={handleSubmit(this.formSubmit)}>
-          <Field component={FormField} name="username" label="Username" doValidate={true}/>
-          <Field component={FormField} name="job" label="Job"/>
+          <Field component={FormField} name="name" label="Name" doValidate={true}/>
+          <Field component={FormField} name="quantity" label="Quantity"/>
+          <Field component="select" name="category" label="Category">
+            <option>Choose a pet category</option>
+            {categories.map((category) => {
+              return (
+                <option value={category.id}>{category.name}</option>
+              );
+            })}
+          </Field>
           <FormSubmit error={error} invalid={invalid} submitting={submitting} buttonSaveLoading="Saving..."
-            buttonSave="Save User"/>
+            buttonSave="Save Pet"/>
         </Form>
       </div>
     );
@@ -37,11 +45,12 @@ export class UserEdit extends React.Component {
     const {dispatch} = this.props;
     return new Promise((resolve, reject) => {
       dispatch({
-        type: 'USERS_ADD_EDIT',
-        user: {
+        type: 'PET_ADD_EDIT',
+        pet: {
           id: values.id || 0,
-          username: values.username,
-          job: values.job,
+          name: values.name,
+          quantity: values.quantity,
+          category: { id: values.category }
         },
         callbackError: (error) => {
           reject(new SubmissionError({_error: error}));
@@ -56,23 +65,24 @@ export class UserEdit extends React.Component {
 }
 
 // decorate the form component
-const UserEditForm = reduxForm({
-  form: 'user_edit',
+const PetEditForm = reduxForm({
+  form: 'pet_edit',
   validate: function (values) {
     const errors = {};
-    if (!values.username) {
-      errors.username = 'Username is required';
+    if (!values.name) {
+      errors.name = 'Name is required';
     }
     return errors;
   },
-})(UserEdit);
+})(PetEdit);
 
 // export the connected class
 function mapStateToProps(state, own_props) {
-  const user = state.users.find(x => Number(x.id) === Number(own_props.params.id)) || {};
+  const pet = state.pets.find(x => Number(x.id) === Number(own_props.params.id)) || {};
   return {
-    user: user,
-    initialValues: user,
+    pet: pet,
+    initialValues: pet,
+    categories: state.categories
   };
 }
-export default connect(mapStateToProps)(UserEditForm);
+export default connect(mapStateToProps)(PetEditForm);

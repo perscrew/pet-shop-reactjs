@@ -2,25 +2,26 @@ import React, { PropTypes } from "react";
 import { Link } from "react-router";
 import { Button, Glyphicon } from "react-bootstrap";
 
-// User List Element component
-export default class UserListElement extends React.Component {
+// Pet List Element component
+export default class PetListElement extends React.Component {
   // render
   render() {
-    const {user, showDelete} = this.props;
+    const {pet, showDelete} = this.props;
     return (
       <tr>
-        <td>#{user.id}</td>
-        <td>{user.username}</td>
-        <td>{user.job}</td>
+        <td>#{pet.id}</td>
+        <td>{pet.name}</td>
+        <td>{pet.quantity}</td>
+        <td>{pet.category.name}</td>
         <td>
-          <Link to={'user-edit/' + user.id}>
+          <Link to={'pet-edit/' + pet.id}>
             <Button bsSize="xsmall">
               Edit <Glyphicon glyph="edit"/>
             </Button>
           </Link>
         </td>
         <td>
-          <Button bsSize="xsmall" className="user-delete" onClick={() => showDelete(user)}>
+          <Button bsSize="xsmall" className="pet-delete" onClick={() => showDelete(pet)}>
             Delete <Glyphicon glyph="remove-circle"/>
           </Button>
         </td>
@@ -30,7 +31,7 @@ export default class UserListElement extends React.Component {
 }
 
 // prop checks
-UserListElement.propTypes = {
-  user: PropTypes.object.isRequired,
+PetListElement.propTypes = {
+  pet: PropTypes.object.isRequired,
   showDelete: PropTypes.func.isRequired,
 }
