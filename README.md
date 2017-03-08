@@ -65,7 +65,14 @@ The test units are organized in 3 sections :
 - reducers (redux reducer)
 - saga (redux-saga)
 
-## 6. Appendices
+## 6. Build the app for production environment
+
+To build the app for production environment run npm run build-prod.
+```
+npm run build-prod
+```
+
+## 7. Appendices
 
 ## Potential enhancements
 - Add a login to secure the app, using OAUTH or JWT Token.
