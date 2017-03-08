@@ -1,4 +1,5 @@
 import React from "react";
+import PetList from "./common/PetList";
 
 // Home page component
 export default class Home extends React.Component {
@@ -6,7 +7,7 @@ export default class Home extends React.Component {
   render() {
     return (
       <div className="page-home">
-        <h4>Hello world!</h4>
+        <PetList/>
       </div>
     );
   }
