@@ -48,7 +48,7 @@ You can add a pet by clicking on the menu header link "add pet".
 
 You can edit a pet by clicking on the HomePage edit list button.
 
-![Edit pet](/screenshots/edit_pet.png)
+![Edit pet](/screenshots/edit_pet.PNG)
 
 You can also delete a pet by clicking on the Homepage delete button.
 
