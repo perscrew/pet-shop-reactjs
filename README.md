@@ -1,13 +1,30 @@
-# Pet Shop front-end
+# Pet Shop front-end apps with React JS
 Simple reactjs apps
 
-## Installation
-<pre>
-  npm install
-  npm start
-</pre>
+## 1. Installation
 
-## Third party libraries used
+* Clone the github repository :
+```
+git clone https://github.com/perscrew/pet-shop-reactjs
+```
+
+* Launch npm install to retrieve dependencies
+```
+npm install
+```
+
+## 2. Launch the app
+
+* Run npm start to launch webpack dev-server
+```
+npm start
+```
+
+## 3. Appendices
+
+###Third party libraries used
+
+You will find below the different third party libraries used in the project.
 
 |Feature|Packages|Benefits|
 |-------|--------|--------|
@@ -43,7 +60,9 @@ Simple reactjs apps
 ||[`babel-loader`](https://github.com/babel/babel-loader)|Helps webpack to compile the new javascript syntax|
 ||[`babel-polyfill`](https://babeljs.io/docs/usage/polyfill/)|Helps the browser to understand the new js syntax|
 ||[`whatwg-fetch`](https://github.com/github/fetch)|Helps the browser to use fetch|
+|Sinon|[`sinon`](https://github.com/sinonjs/sinon)|Standalone and test framework agnostic JavaScript test spies, stubs and mocks.|
 
 
 ## Potential enhancements
 - Use Request Headers for each fetch call on pet api to improve security : use OAUTH or JWT Token.
+- Use environment variable to configure the server api URL & PORT.
