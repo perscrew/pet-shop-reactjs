@@ -1,16 +1,30 @@
 # Pet Shop front-end apps with React JS
-Simple reactjs apps
+
+[![Build Status](https://travis-ci.org/perscrew/pet-shop-reactjs.svg?branch=master)](https://travis-ci.org/perscrew/pet-shop-reactjs)
+
+These app is a simple CRUD interface for a Pet Shop.
+It demonstrates the use of ReactJS & ES6.
+The app calls a back-end api hosted on another [Github project : pet-rest-api](https://github.com/perscrew/pet-rest-api).
+Important : You need to run the back-end api before launching the app.
 
 ## 1. Installation
 
 * Clone the github repository :
 ```
-git clone https://github.com/perscrew/pet-shop-reactjs
+git clone https://github.com/perscrew/pet-shop-reactjs.git
 ```
 
 * Launch npm install to retrieve dependencies
 ```
 npm install
+```
+
+## 2. Set up the server back-end URL
+You can set-up the default back-end server URL in the /src/api/config.js file.
+Just replace the SERVER_BASE_URL constant with the desired value :
+```
+//Configure here the server api base url
+const SERVER_BASE_URL = "http://localhost:8080";
 ```
 
 ## 2. Launch the app
@@ -19,8 +33,35 @@ npm install
 ```
 npm start
 ```
+By default, the server is running on the port 3000. You can modify these configuration in package.json & webpack.config.js files. Find "3000" and replace it with the desired port.
+Once npm start has finished, you can check the app on your browser [http://localhost:3000](http://localhost:3000)
 
-## 3. Appendices
+## 4. Use the app
+
+When you launch the app you arrive on the welcome page. You can consult the pet list of your shop.
+
+![Welcome page](/public/screenshots/welcome.png)
+
+You can add a pet by clicking on the menu header link "add pet".
+
+![Add pet](/public/screenshots/add_pet.png)
+
+You can edit a pet by clicking on the HomePage edit list button.
+
+![Edit pet](/public/screenshots/edit_pet.png)
+
+You can also delete a pet by clicking on the Homepage delete button.
+
+![Delete pet](/public/screenshots/delete_pet.png)
+
+## 5. Appendices
+
+## Potential enhancements
+- Add a login to secure the app, using OAUTH or JWT Token.
+- Use Request Headers for each fetch call on pet api to improve security : use OAUTH or JWT Token.
+- Use environment variable to configure the server api URL & PORT.
+- Use environment variable to configure the webpack-dev-server PORT.
+
 
 ###Third party libraries used
 
@@ -61,8 +102,3 @@ You will find below the different third party libraries used in the project.
 ||[`babel-polyfill`](https://babeljs.io/docs/usage/polyfill/)|Helps the browser to understand the new js syntax|
 ||[`whatwg-fetch`](https://github.com/github/fetch)|Helps the browser to use fetch|
 |Sinon|[`sinon`](https://github.com/sinonjs/sinon)|Standalone and test framework agnostic JavaScript test spies, stubs and mocks.|
-
-
-## Potential enhancements
-- Use Request Headers for each fetch call on pet api to improve security : use OAUTH or JWT Token.
-- Use environment variable to configure the server api URL & PORT.
