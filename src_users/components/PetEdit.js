@@ -16,6 +16,16 @@ export class PetEdit extends React.Component {
     this.formSubmit = this.formSubmit.bind(this);
   }
 
+  componentDidMount() {
+    //this.handleInitialize();
+  }
+
+  handleInitialize() {
+    this.state = this.props.initialValues;
+    this.props.initialize(this.props.initialValues);
+    this.forceUpdate();
+  }
+
   // render
   render() {
     const {pet, categories, handleSubmit, error, invalid, submitting} = this.props;
@@ -24,7 +34,7 @@ export class PetEdit extends React.Component {
         <PageHeader>{'Pet ' + (pet.id ? 'edit' : 'add')}</PageHeader>
         <Form horizontal onSubmit={handleSubmit(this.formSubmit)}>
           <Field component={FormField} name="name" label="Name" doValidate={true}/>
-          <Field component={FormField} name="quantity" label="Quantity"/>
+          <Field component={FormField} name="quantity" label="Quantity" doValidate={true}/>
           <Field component={FormField} name="category" label="Category"/>
 
           <FormSubmit error={error} invalid={invalid} submitting={submitting} buttonSaveLoading="Saving..."
@@ -61,6 +71,7 @@ export class PetEdit extends React.Component {
 // decorate the form component
 const PetEditForm = reduxForm({
   form: 'pet_edit',
+  enableReinitialize : true,
   validate: function (values) {
     const errors = {};
     if (!values.name) {
