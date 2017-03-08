@@ -1,7 +1,7 @@
 {
-  "name": "redux-minimal",
+  "name": "pet-shop-reactjs",
   "version": "1.0.0",
-  "description": "Start building complex react-redux apps today, with this minimalist easy to understand starter kit (boilerplate)",
+  "description": "Simple ReactJS app to handle pet in a shop.",
   "keywords": [
     "react",
     "redux",
@@ -10,10 +10,10 @@
     "boilerplate"
   ],
   "main": "index.js",
-  "homepage": "http://redux-minimal.js.org/",
+  "homepage": "https://github.com/perscrew/pet-shop-reactjs",
   "repository": {
     "type": "git",
-    "url": "https://github.com/catalin-luntraru/redux-minimal"
+    "url": "https://github.com/perscrew/pet-shop-reactjs.git"
   },
   "scripts": {
     "start": "webpack-dev-server --inline --hot --history-api-fallback --host localhost --port 3000",
@@ -29,7 +29,7 @@
       "stage-3"
     ]
   },
-  "author": "Catalin Luntraru",
+  "author": "Thibaud Dervily",
   "license": "MIT",
   "dependencies": {
     "react": "^15.4.2",

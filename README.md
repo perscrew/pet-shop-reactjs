@@ -5,7 +5,8 @@
 These app is a simple CRUD interface for a Pet Shop.
 It demonstrates the use of ReactJS & ES6.
 The app calls a back-end api hosted on another [Github project : pet-rest-api](https://github.com/perscrew/pet-rest-api).
-Important : You need to run the back-end api before launching the app.
+
+**Important** : You need to run the back-end api before launching the app.
 
 ## 1. Installation
 
@@ -20,20 +21,20 @@ npm install
 ```
 
 ## 2. Set up the server back-end URL
-You can set-up the default back-end server URL in the /src/api/config.js file.
+You can set-up the default back-end server URL in the [/src/api/config.js](/src/api/config.js) file.
 Just replace the SERVER_BASE_URL constant with the desired value :
 ```
 //Configure here the server api base url
 const SERVER_BASE_URL = "http://localhost:8080";
 ```
 
-## 2. Launch the app
+## 3. Launch the app
 
 * Run npm start to launch webpack dev-server
 ```
 npm start
 ```
-By default, the server is running on the port 3000. You can modify these configuration in package.json & webpack.config.js files. Find "3000" and replace it with the desired port.
+By default, the server is running on the port 3000. You can modify these configuration in [package.json](package.json) & [webpack.config.js](webpack.config.js) files. Find "3000" and replace it with the desired port.
 Once npm start has finished, you can check the app on your browser [http://localhost:3000](http://localhost:3000)
 
 ## 4. Use the app
@@ -54,7 +55,17 @@ You can also delete a pet by clicking on the Homepage delete button.
 
 ![Delete pet](/screenshots/delete_pet.png)
 
-## 5. Appendices
+## 5. Run test units
+To run the test units simply run npm test
+```
+npm test
+```
+The test units are organized in 3 sections :
+- components (react component)
+- reducers (redux reducer)
+- saga (redux-saga)
+
+## 6. Appendices
 
 ## Potential enhancements
 - Add a login to secure the app, using OAUTH or JWT Token.
