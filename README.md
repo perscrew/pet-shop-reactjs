@@ -40,19 +40,19 @@ Once npm start has finished, you can check the app on your browser [http://local
 
 When you launch the app you arrive on the welcome page. You can consult the pet list of your shop.
 
-![Welcome page](/public/screenshots/welcome.png)
+![Welcome page](/screenshots/welcome.png)
 
 You can add a pet by clicking on the menu header link "add pet".
 
-![Add pet](/public/screenshots/add_pet.png)
+![Add pet](/screenshots/add_pet.png)
 
 You can edit a pet by clicking on the HomePage edit list button.
 
-![Edit pet](/public/screenshots/edit_pet.png)
+![Edit pet](/screenshots/edit_pet.png)
 
 You can also delete a pet by clicking on the Homepage delete button.
 
-![Delete pet](/public/screenshots/delete_pet.png)
+![Delete pet](/screenshots/delete_pet.png)
 
 ## 5. Appendices
 
